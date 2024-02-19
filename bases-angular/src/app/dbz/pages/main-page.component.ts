@@ -16,9 +16,6 @@ export class DbzMainPageComponent {
   }];
 
   onNewCharacter(character: Character): void{
-    console.log('MainPage');
-    console.log(character);
-
-
+    this.characters.push(character);
   }
 }
