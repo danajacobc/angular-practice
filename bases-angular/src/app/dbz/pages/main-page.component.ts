@@ -14,4 +14,11 @@ export class DbzMainPageComponent {
     name: 'Goku',
     power: 9500
   }];
+
+  onNewCharacter(character: Character): void{
+    console.log('MainPage');
+    console.log(character);
+
+
+  }
 }
