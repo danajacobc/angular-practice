@@ -8,9 +8,14 @@ import { Character } from '../../interfaces/character.interface';
 })
 export class ListComponent {
 
-  @Input() 
+  @Input()
   public characterList: Character[] = [{
     name: 'Thunks',
     power: 10,
   }]
+
+  onDeleteCharacter(index: number): void {
+    //TODO: Emitir el ID del personaje.
+    console.log({index});
+  }
 }
