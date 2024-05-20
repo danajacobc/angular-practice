@@ -18,10 +18,30 @@ export class CountriesService {
                     console.log(`No se encontro ningún país con el termino: ${term}`);
                     return of([])
                   } )
-                )
-                ;
+                );
+  }
 
+  searchCountry( term: string ): Observable<Country[]> {
 
+    return this.http.get<Country[]>(`${this.apiUrl}/name/${term}`)
+                .pipe(
+                  catchError( error => {
+                    console.log(`No se encontro ningún país con el termino: ${term}`);
+                    return of([])
+                  } )
+                );
+  }
+
+  //Acá 'region' debería ser un valor estatico, porque van a ser siempre las mismas regiones.
+  searchRegion( region: string ): Observable<Country[]> {
+
+    return this.http.get<Country[]>(`${this.apiUrl}/region/${region}`)
+                .pipe(
+                  catchError( error => {
+                    console.log(`No se encontro ningún país con el termino: ${region}`);
+                    return of([])
+                  } )
+                );
   }
 
 }
