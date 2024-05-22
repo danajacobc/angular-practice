@@ -21,18 +21,6 @@ export class DynamicPageComponent {
     return this.myForm.get('favoriteGames') as FormArray;
   }
 
-  onSubmit(): void {
-
-    if(this.myForm.invalid) {
-      this.myForm.markAllAsTouched();
-      return;
-    }
-
-    console.log(this.myForm.value);
-    this.myForm.reset();
-
-  }
-
   isValidField(field: string): boolean | null {
     return this.myForm.controls[field].errors
     && this.myForm.controls[field].touched;
@@ -60,4 +48,19 @@ export class DynamicPageComponent {
     return null;
   }
 
+  onDeleteFavorite( index : number ): void {
+    this.favoriteGames.removeAt(index);
+  }
+
+  onSubmit(): void {
+
+    if(this.myForm.invalid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+
+    console.log(this.myForm.value);
+    this.myForm.reset();
+
+  }
 }
